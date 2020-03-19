@@ -24,7 +24,7 @@ extends('layouts.app')
         @endforeach
     </div>
     <div class="actions text-center">
-    {{$products-links()}}
+        {{$products->links()}}
     </div>
 </div>
 @endsection
