@@ -9,7 +9,7 @@ use App\Http\Resources\ProductsCollection;
 class ProductsController extends Controller
 {
     public function __construct(){
-            // $this->middleware('auth',['except'=>['index','show']]);
+     // $this->middleware('auth',['except'=>['index','show']]);
             
     }
     /**
@@ -33,6 +33,7 @@ class ProductsController extends Controller
             consulta en una cadena serializada
             */
             return $products->toJson();
+            //return new ProductsCollection($products);
         }
             return view('products.index',['products'=>$products]);
     }
@@ -46,7 +47,7 @@ class ProductsController extends Controller
     {
         //Muestra un formulario para guardar un recurso
         $product = new Product();
-        return view('products.create',['product'=>$product]);
+        return view('.create',['product'=>$product]);
     }
 
     /**
@@ -65,7 +66,7 @@ class ProductsController extends Controller
         if(Product::create($options)){
             return redirect('/productos');
         }else{
-            return view('products.create');
+            return view('.create');
         }
     }
 
@@ -78,7 +79,7 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('products.show',['product'=>$product]);
+        return view('.show',['product'=>$product]);
     }
 
     /**
@@ -90,7 +91,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view("products.edit",['product'=>$product]);
+        return view(".edit",['product'=>$product]);
     }
 
     /**
@@ -109,7 +110,7 @@ class ProductsController extends Controller
         if($product->save()){
             return redirect('/productos');
         }else{
-            return view("products.edit",['product'=>$product]);
+            return view(".edit",['product'=>$product]);
         }
     }
 
