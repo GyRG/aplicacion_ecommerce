@@ -19,10 +19,22 @@ class ProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::paginate(6);
-
-        return view('products.index',['products'=>$products]);
-        //
+        $products = Product::paginate(10);
+        /*
+        El método wantsJason() nos devueve un true cuando detecta que el 
+        cliente hace una petición de datos con estructura json, por 
+        por lo que cuando se detecta dicha solicitod 
+        el método ejecutará una consulta y
+        dará como resultado una consulta serializa  
+        */ 
+        if($request->wantsJson()){
+            /*
+            Método de Elocuent que convierte el resultado de una 
+            consulta en una cadena serializada
+            */
+            return $products->toJson();
+        }
+            return view('products.index',['products'=>$products]);
     }
 
     /**
