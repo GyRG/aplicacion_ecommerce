@@ -30,3 +30,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+Vue.component('products-component', require('./components/products/ProductsComponent.vue').default);
+Vue.component('product-card-component',require(',/components/products/ProductCardComponent.vue').default);

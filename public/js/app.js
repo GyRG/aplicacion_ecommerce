@@ -49526,6 +49526,8 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+Vue.component('products-component', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './components/products/ProductsComponent.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"]);
+Vue.component('product-card-component', __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module ',/components/products/ProductCardComponent.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()))["default"]);
 
 /***/ }),
 
